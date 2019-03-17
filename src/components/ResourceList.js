@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useResources from './useResources';
 
 const ResourceList = ({ resource }) => {
 
-  const [resources, setResources] = useState([]);
-
-  const fetchResource = async () => {
-    const response = await axios.get(`https://jsonplaceholder.typicode.com/${resource}`)
-
-    setResources(response.data)
-  }
-
-  // If the value of resource in the array is changed, 
-  // the function is called and the app updates
-  useEffect(() => {
-    fetchResource(resource);
-  }, [resource])
+  const resources = useResources(resource);
 
   return (
     <ul>
