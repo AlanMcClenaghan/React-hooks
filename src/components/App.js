@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
+import ResourceList from './ResourceList';
 
 const App = () => {
 
+  // Array destructuring:
+  // "currentValue" of this piece of state
+  // and "setCurrentValue" function to update out state
+  // useState function from React
+  // ("initialValue") as indiviual values rather than objects
   const [resource, setResource] = useState('posts');
+
   return (
     <div className="ui container">
       <div>
         <button className="ui button primary" onClick={() => setResource('posts')}>Posts</button>
         <button className="ui button secondary" onClick={() => setResource('todos')}>Todos</button>
       </div>
-      {resource}
+      <ResourceList resource={resource} />
     </div>
   );
 }
